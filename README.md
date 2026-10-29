@@ -11,12 +11,12 @@ needs from a Linux system, how to test it, and where its code lives.
 - **Off in every build.** Bluetooth nearby is held by a gate in the code
   (`NEARBY_PRODUCTION_ENABLED = false` in raven-core) until its release record
   (`core/docs/WAIVER_NEARBY_DRAFT.md`, unsigned) is signed after the hardware test rows
-  (`core/docs/PHYSICAL_NEARBY_LAPTOPS.md`, N1-N12), which have not been run yet. In a release
+  (rows N1-N12, run from an unpublished test checklist), which have not been run yet. In a release
   build `raven nearby status` says "held in this build" and nothing touches Bluetooth.
 - **What exists:** a complete BlueZ backend in `raven-node` (central and peripheral roles, GATT
   service and advertising over D-Bus, the address-privacy check), tested in CI without a radio, and
   end to end on two emulated controllers (`btvirt`) where the CI runner allows it.
-- **Not verified yet:** real adapters between real laptops (rows N1-N12 of the hardware runbook),
+- **Not verified yet:** real adapters between real laptops (hardware rows N1-N12),
   and whether every distribution lets a normal user read the adapter's privacy setting.
 - Nothing here is packaged. There is nothing to download.
 
@@ -99,8 +99,7 @@ export RAVEN_LAB_TEST_A=1 RAVEN_LAB_NEARBY=1 RAVEN_DATA_DIR="$HOME/raven-nearby-
 ```
 
 Then `raven nearby enable` and `raven nearby status`. `core/docs/NEARBY.md` explains every status
-line and what other people in radio range can see; `core/docs/PHYSICAL_NEARBY_LAPTOPS.md` has the
-step-by-step hardware rows.
+line and what other people in radio range can see.
 
 ## Planned
 
@@ -112,5 +111,6 @@ step-by-step hardware rows.
 
 ## License
 
-GNU Affero General Public License v3.0 (`LICENSE`). Security issues: please write to
+Copyright (C) 2026 ASHCO. GNU Affero General Public License v3.0 (`LICENSE`; notice and pending
+additional terms in `NOTICE`). Security issues: please write to
 security@raven-messager.com (`SECURITY.md`), not a public issue.
